@@ -1,0 +1,18 @@
+name: sync
+
+on:
+  schedule:
+  - cron: "0 * * * *"  # each full hour
+
+jobs:
+  sync:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Sync with upstream
+      uses: ecamp/github-repo-sync-upstream@master
+      with:
+        source_repo: "https://github.com/ecamp/dummy.git"
+        source_branch: "devel"
+        destination_branch: "devel"
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
