@@ -2,13 +2,13 @@ name: sync
 
 on:
   schedule:
-  - cron: '5/15 * * * *'
+  - cron: '10/15 * * * *'
 
 jobs:
   sync:
+    name: Sync with upstream
     runs-on: ubuntu-latest
     steps:
-    - name: Sync with upstream
     - uses: actions/checkout@v2
     - uses: shitiomatic/forkbacon@master
       with:
